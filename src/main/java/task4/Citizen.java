@@ -4,7 +4,7 @@ public class Citizen {
     private String name;
     private String surname;
 
-    public Citizen(String name, String surname){
+    public Citizen(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
@@ -24,9 +24,4 @@ public class Citizen {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-   /*public int hashCode() {
-        int result = name.hashMap();
-        result = 31 * result + surname.hashMap();
-        return result;
-    }*/
 }

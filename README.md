@@ -25,5 +25,5 @@ DO NOT USE any classes from Java Collection Framework.
 
 
 4. Using a HashMap class create an application which allows to find a citizen by a passport serial number and series. Create
-two classes – Citizen with name and surname and Passport with series and number. Passport class will be uses as a key for
+two classes – Citizen with name and surname and Passport with series and number. Passport class will be used as a key for
 HashMap and the Citizen will be used as a value  
