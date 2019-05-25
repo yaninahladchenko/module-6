@@ -1,10 +1,49 @@
 package task3;
 
-import java.util.LinkedList;
-
-public class LinkedListTask {
+public class LinkedListTest {
     public static void main(String[] args) {
+        //https://medium.com/@jillplatts/6-minute-beginners-guide-to-java-s-linked-list-data-structure-bb2fbcca81b1
+
+        /* Start with the empty list. */
         LinkedList list = new LinkedList();
+
+        // Insert the values
+        list.insert(list, 1);
+        list.insert(list, 2);
+
+        list.printList();
+
+        list.deleteByKey(1);
+
+        // Print the LinkedList
+        printList(list);
+        deleteByKey(list, 4);
+
+        // Print the LinkedList
+        printList(list);
+
+        deleteByKey(list, 10);
+
+        // Print the LinkedList
+        printList(list);
+
+        deleteAtPosition(list, 0);
+
+        // Print the LinkedList
+        printList(list);
+
+        deleteAtPosition(list, 2);
+
+        // Print the LinkedList
+        printList(list);
+        deleteAtPosition(list, 10);
+
+        // Print the LinkedList
+        printList(list);
+
+    }
+}
+        /*LinkedList list = new LinkedList();
 
         list.add("Carrie");
         list.add("The Shining");
@@ -29,38 +68,7 @@ public class LinkedListTask {
         list.get(4);
         // printing the element from list with index 4
         System.out.println("The element is: " + list.get(4));
-
-
-
-
-
-
-
-
     }
-}
+}*/
 
 
-/*private String bookIndex;
-    private String bookName;
-
-    public String getBookIndex() {
-        return bookIndex;
-    }
-
-    public void setBookIndex(String bookIndex) {
-        this.bookIndex = bookIndex;
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public Book (String bookIndex, String bookName){
-
-
-    }*/
