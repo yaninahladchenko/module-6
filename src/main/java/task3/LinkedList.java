@@ -20,6 +20,16 @@ public class LinkedList {
         return this;
     }
 
+    public int size() {
+        int counter = 0;
+        LinkedListNode currentNode = this.headNode;
+        while (currentNode != null) {
+            currentNode = currentNode.getNextNode();
+            counter++;
+        }
+        return counter;
+    }
+
     public void print() {
         LinkedListNode currentNode = this.headNode;
         while (currentNode != null) {

@@ -18,7 +18,7 @@ Make sure to validate an input string and throw an unchecked exception in case o
 1\2 should not pass the validation and throw an exception
 
 
-3. Create a LinkedList class which will represent a linear collection of data elements, whose order is not given by their
+3. Create a LinkedListTest class which will represent a linear collection of data elements, whose order is not given by their
 physical placement in memory. Instead, each element points to the next. Provide methods to add (will add an element to the
 end of the list), remove (by index) and get (by index) an element from the list.
 DO NOT USE any classes from Java Collection Framework.
