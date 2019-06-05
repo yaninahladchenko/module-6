@@ -1,80 +1,73 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import task3.LinkedList;
 
 import static org.hamcrest.CoreMatchers.*;
 
 public class LinkedListTest {
+    private LinkedList actualList;
+    private String firstElement = "Carrie";
+    private String secondElement = "Misery";
+
+    @Before
+    public void init() {
+        actualList = new LinkedList();
+        actualList.add(firstElement);
+    }
 
     @Test
     public void testAddElementToEmptyList() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        Assert.assertThat(actualList.size(), is(1));
-        Assert.assertThat(actualList.get(0), is("Carrie"));
+        Assert.assertThat("List size is incorrect.", actualList.size(), is(1));
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(firstElement));
     }
 
     @Test
     public void testAddElementToExistingNotEmptyList() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        Assert.assertThat(actualList.get(0), is("Carrie"));
-        actualList.add("Misery");
-        Assert.assertThat(actualList.get(1), is("Misery"));
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(firstElement));
+        actualList.add(secondElement);
+        Assert.assertThat("Incorrect element value.", actualList.get(1), is(secondElement));
     }
 
     @Test
     public void testAddElementWithNullValueToExistingList() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        Assert.assertThat(actualList.get(0), is("Carrie"));
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(firstElement));
         actualList.add("");
-        Assert.assertThat(actualList.get(1), is(""));
+        Assert.assertThat("Incorrect element value.", actualList.get(1), is(""));
     }
 
     @Test
     public void testGetElementValueByIndex() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        actualList.add("Rage");
-        actualList.add("Misery");
-        Assert.assertThat(actualList.get(0), is("Carrie"));
+        actualList.add(secondElement);
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(firstElement));
     }
 
     @Test
     public void testRemoveElementByIndex() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        actualList.add("Misery");
+        actualList.add(secondElement);
         actualList.remove(0);
-        Assert.assertThat(actualList.get(0), is("Misery"));
-        Assert.assertThat(actualList.size(), is(1));
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(secondElement));
+        Assert.assertThat("List size is incorrect.", actualList.size(), is(1));
     }
 
     @Test
     public void testRemoveElementByValue() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        actualList.add("Misery");
-        actualList.remove("Misery");
-        Assert.assertThat(actualList.get(0), is("Carrie"));
-        Assert.assertThat(actualList.size(), is(1));
+        actualList.add(secondElement);
+        actualList.remove(secondElement);
+        Assert.assertThat("Incorrect element value.", actualList.get(0), is(firstElement));
+        Assert.assertThat("List size is incorrect.", actualList.size(), is(1));
     }
 
     @Test
     public void testListIsEmptyAfterRemovingElementByIndex() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
         actualList.remove(0);
-        Assert.assertThat(actualList.size(), is(0));
+        Assert.assertThat("List size is incorrect.", actualList.size(), is(0));
     }
 
     @Test
     public void testListIsEmptyAfterRemovingElementByValue() {
-        LinkedList actualList = new LinkedList();
-        actualList.add("Carrie");
-        actualList.remove("Carrie");
-        Assert.assertThat(actualList.size(), is(0));
+        actualList.remove(firstElement);
+        Assert.assertThat("List size is incorrect.", actualList.size(), is(0));
     }
 
 }
