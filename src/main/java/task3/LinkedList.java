@@ -1,7 +1,12 @@
 package task3;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 //https://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/
 public class LinkedList {
+    private static Logger log = LogManager.getLogger(LinkedList.class);
+
 
     private LinkedListNode headNode;
 
@@ -33,7 +38,7 @@ public class LinkedList {
     public void print() {
         LinkedListNode currentNode = this.headNode;
         while (currentNode != null) {
-            System.out.print(currentNode.getNodeData() + "\n");
+            log.info(currentNode.getNodeData() + "\n");
             currentNode = currentNode.getNextNode();
         }
     }
@@ -53,7 +58,7 @@ public class LinkedList {
         }
 
         if (currentNode == null) {
-            System.out.println(String.format("Element at index %s does not exist.", index));
+            log.info(String.format("Element at index %s does not exist.", index));
         }
         return currentNode.getNodeData();
     }
@@ -66,7 +71,7 @@ public class LinkedList {
         // If index is 0, then headNode node itself is to be removed
         if (index == 0 && currentNode != null) {
             this.headNode = currentNode.getNextNode(); // Changed headNode
-            System.out.println(String.format("Element at index %s removed.", index));
+            log.info(String.format("Element at index %s removed.", index));
             return this;
         }
 
@@ -82,7 +87,7 @@ public class LinkedList {
                 // Since the currentNode is the required position
                 // Unlink currentNode from linked list
                 previousNode.setNextNode(currentNode.getNextNode());
-                System.out.println(String.format("Element at index %s removed.", index));
+                log.info(String.format("Element at index %s removed.", index));
                 break;
             } else {
                 // If current position is not the index
@@ -99,7 +104,7 @@ public class LinkedList {
         // CASE 3: The index is greater than the size of the LinkedList
         // In this case, the currNode should be null
         if (currentNode == null) {
-            System.out.println(String.format("Element at index %s does not exist.", index));
+            log.info(String.format("Element at index %s does not exist.", index));
         }
         return this;
     }
@@ -111,7 +116,7 @@ public class LinkedList {
         // If headNode node itself holds the key to be deleted
         if (currentNode != null && currentNode.getNodeData().equals(key)) {
             this.headNode = currentNode.getNextNode(); // Changed headNode
-            System.out.println(String.format("Element '%s' removed.", key));
+            log.info(String.format("Element '%s' removed.", key));
             return this;
         }
 
@@ -133,16 +138,15 @@ public class LinkedList {
             // Since the key is at currentNode
             // Unlink currentNode from linked list
             previousNode.setNextNode(currentNode.getNextNode());
-            System.out.println(String.format("Element '%s' removed.", key));
+            log.info(String.format("Element '%s' removed.", key));
         }
 
         // CASE 3: The key is not present
         // If key was not present in linked list
         // currNode should be null
         if (currentNode == null) {
-            System.out.println(String.format("Element '%s' does not exist.", key));
+            log.info(String.format("Element '%s' does not exist.", key));
         }
         return this;
     }
-
 }
